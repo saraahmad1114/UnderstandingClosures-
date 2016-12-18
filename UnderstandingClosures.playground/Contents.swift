@@ -16,13 +16,27 @@ var reversedNames = names.sorted(by:backwards)
 
 var anotherReversedNames = names.sorted(by: { (stringOne: String, stringTwo: String) -> Bool in return stringOne > stringTwo})
 
+var reversedNamesAgain = names.sorted(by: {stringOne, stringTwo in return stringOne > stringTwo})
+
+var anotherWay = names.sorted(by: {stringOne, stringTwo in stringOne > stringTwo})
+//Since its clearly understood that a bool will be returned the return keyword is omitted altogether 
+
+var shorterWay = names.sorted(by: { $0 > $1 })
+
+var evenShorterWay = names.sorted(by: >)
+
+
 print(reversedNames)
 print(anotherReversedNames)
+print(reversedNamesAgain)
+print(anotherWay)
+print(shorterWay)
+print(evenShorterWay)
 
 //For characters in Strings, "greater than" means appears later in the alphabet than. For example the letter "B" is greater than "A". For this reason Ewa appears first because its the greatest of the strings and therefore appears first in the reversedNames array 
 
 
-//Another Example 
+//Another Example of Inline Closures
 
 func alphabeticalOrder(firstString: String, secondString: String) -> Bool{
     return firstString < secondString
